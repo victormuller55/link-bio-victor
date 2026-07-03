@@ -1,0 +1,93 @@
+@media (max-width: 480px) {
+  .biolink-app {
+    padding: 3.5rem var(--spacing-sm) var(--spacing-lg);
+  }
+
+  .biolink-header {
+    padding-top: var(--spacing-sm);
+  }
+
+  .biolink-tema-toggle {
+    top: var(--spacing-sm);
+    right: var(--spacing-sm);
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .biolink-tema-toggle svg {
+    width: 1.125rem;
+    height: 1.125rem;
+  }
+
+  .biolink-header__avatar {
+    width: 5.5rem;
+    height: 5.5rem;
+  }
+
+  .biolink-header__iniciais {
+    font-size: 1.5rem;
+  }
+
+  .biolink-header__nome {
+    font-size: 1.25rem;
+  }
+
+  .biolink-header__descricao {
+    font-size: 0.875rem;
+  }
+
+  .biolink-link {
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+
+  .biolink-link__titulo {
+    font-size: 0.875rem;
+  }
+
+  .biolink-estado__titulo {
+    font-size: 1.25rem;
+  }
+
+  .biolink-estado__ilustracao {
+    width: 6.5rem;
+    height: 6.5rem;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .biolink-app {
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+}
+
+@media (min-width: 769px) {
+  .biolink-app {
+    padding: var(--spacing-2xl) var(--spacing-lg);
+  }
+
+  .biolink-header__nome {
+    font-size: 1.625rem;
+  }
+
+  .biolink-link {
+    padding: var(--spacing-md) var(--spacing-xl);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .biolink-animate,
+  .biolink-secao--links .biolink-link {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

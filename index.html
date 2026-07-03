@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="BioLink Convertix — sua página de links profissional com identidade visual moderna."
+    />
+    <meta name="theme-color" content="#ffffff" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="BioLink Convertix" />
+    <meta
+      property="og:description"
+      content="Centralize seus links em uma página profissional powered by Convertix."
+    />
+    <meta property="og:locale" content="pt_BR" />
+
+    <title>BioLink Convertix</title>
+
+    <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml" />
+    <link rel="shortcut icon" href="assets/icons/favicon.svg" type="image/svg+xml" />
+
+    <script>
+      (function () {
+        try {
+          if (localStorage.getItem("biolink-tema") === "escuro") {
+            document.documentElement.setAttribute("data-tema", "escuro");
+          }
+        } catch (e) {}
+      })();
+    </script>
+
+    <link rel="stylesheet" href="assets/css/reset.css" />
+    <link rel="stylesheet" href="assets/css/variables.css" />
+    <link rel="stylesheet" href="assets/css/global.css" />
+    <link rel="stylesheet" href="assets/css/components.css" />
+    <link rel="stylesheet" href="assets/css/responsive.css" />
+  </head>
+  <body>
+    <div class="biolink-bg" aria-hidden="true">
+      <div class="biolink-bg__orb biolink-bg__orb--1"></div>
+      <div class="biolink-bg__orb biolink-bg__orb--2"></div>
+      <div class="biolink-bg__orb biolink-bg__orb--3"></div>
+      <div class="biolink-bg__grid"></div>
+    </div>
+
+    <button
+      type="button"
+      id="biolink-tema-toggle"
+      class="biolink-tema-toggle"
+      aria-label="Alternar para modo escuro"
+      aria-pressed="false"
+      title="Modo escuro"
+    ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+
+    <div id="app" class="biolink-app">
+      <main class="biolink-app__main" id="biolink-main" role="main">
+        <!--
+          Container principal renderizado via JavaScript.
+          Estrutura preparada para seções futuras:
+          - galeria de imagens (biolink-secao--galeria)
+          - vídeo YouTube (biolink-secao--video)
+          - história/sobre (biolink-secao--sobre)
+          - especialidade (biolink-header__especialidade)
+          - temas e cores personalizadas (data-tema, CSS variables)
+        -->
+        <div
+          id="biolink-conteudo"
+          class="biolink-conteudo"
+          aria-live="polite"
+        ></div>
+      </main>
+    </div>
+
+    <script type="module" src="assets/js/app.js"></script>
+  </body>
+</html>

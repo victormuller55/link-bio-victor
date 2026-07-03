@@ -1,0 +1,175 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap");
+
+body {
+  font-family: var(--font-family);
+  color: var(--text);
+  background-color: var(--background);
+  background-image: var(--bg-gradient);
+  transition:
+    background-color var(--transition),
+    background-image var(--transition),
+    color var(--transition);
+}
+
+/* Fundo decorativo */
+.biolink-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.biolink-bg__orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: var(--orb-opacity);
+  background: var(--primary);
+}
+
+.biolink-bg__orb--1 {
+  top: -8%;
+  left: -12%;
+  width: 22rem;
+  height: 22rem;
+  animation: orb-float-1 18s ease-in-out infinite;
+}
+
+.biolink-bg__orb--2 {
+  top: 35%;
+  right: -15%;
+  width: 18rem;
+  height: 18rem;
+  animation: orb-float-2 22s ease-in-out infinite;
+}
+
+.biolink-bg__orb--3 {
+  bottom: -10%;
+  left: 20%;
+  width: 16rem;
+  height: 16rem;
+  opacity: calc(var(--orb-opacity) * 0.7);
+  animation: orb-float-3 20s ease-in-out infinite;
+}
+
+.biolink-bg__grid {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(var(--grid-color) 1px, transparent 1px);
+  background-size: 28px 28px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 20%, transparent 75%);
+}
+
+@keyframes orb-float-1 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(3rem, 2rem) scale(1.08);
+  }
+}
+
+@keyframes orb-float-2 {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-2.5rem, 3rem) scale(0.95);
+  }
+}
+
+@keyframes orb-float-3 {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(2rem, -2rem);
+  }
+}
+
+.biolink-app {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100dvh;
+  padding: var(--spacing-lg) var(--spacing-md) var(--spacing-xl);
+}
+
+.biolink-app__main {
+  width: 100%;
+  max-width: var(--max-width);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.biolink-conteudo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.biolink-conteudo--carregado {
+  gap: var(--spacing-lg);
+}
+
+/* Animação ao scroll */
+.biolink-animate {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.65s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: var(--animate-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.biolink-animate--visivel {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Links em cascata quando a seção entra no viewport */
+.biolink-secao--links .biolink-link {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.biolink-secao--links.biolink-animate--visivel .biolink-link {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.biolink-secao--links.biolink-animate--visivel .biolink-link:nth-child(1) { transition-delay: 0.08s; }
+.biolink-secao--links.biolink-animate--visivel .biolink-link:nth-child(2) { transition-delay: 0.14s; }
+.biolink-secao--links.biolink-animate--visivel .biolink-link:nth-child(3) { transition-delay: 0.2s; }
+.biolink-secao--links.biolink-animate--visivel .biolink-link:nth-child(4) { transition-delay: 0.26s; }
+.biolink-secao--links.biolink-animate--visivel .biolink-link:nth-child(5) { transition-delay: 0.32s; }
+.biolink-secao--links.biolink-animate--visivel .biolink-link:nth-child(6) { transition-delay: 0.38s; }
+.biolink-secao--links.biolink-animate--visivel .biolink-link:nth-child(n+7) { transition-delay: 0.44s; }
+
+.biolink-secoes {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+  width: 100%;
+}
+
+.biolink-secao {
+  width: 100%;
+}
+
+.biolink-secao[hidden] {
+  display: none;
+}
+
