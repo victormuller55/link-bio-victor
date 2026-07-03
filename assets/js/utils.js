@@ -2,22 +2,10 @@
  * Funções auxiliares reutilizáveis.
  */
 
-const PARAMETRO_SITE_ID = 'site_id';
-
 /**
- * Obtém o site_id a partir dos parâmetros da URL.
- * @returns {string|null}
+ * Identificador fixo do BioLink na API Convertix.
  */
-export function getSiteId() {
-  const parametros = new URLSearchParams(window.location.search);
-  const siteId = parametros.get(PARAMETRO_SITE_ID);
-
-  if (!siteId || !siteId.trim()) {
-    return null;
-  }
-
-  return siteId.trim();
-}
+export const SITE_ID = '5';
 
 /**
  * Extrai as iniciais de um nome (máximo 2 caracteres).

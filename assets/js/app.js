@@ -3,12 +3,11 @@
  */
 
 import { buscarBioLink, ApiError } from './api.js';
-import { getSiteId } from './utils.js';
+import { SITE_ID } from './utils.js';
 import { inicializarTema, inicializarBotaoTema } from './tema.js';
 import {
   renderLoading,
   renderPagina,
-  renderSiteIdAusente,
   renderNaoEncontrado,
   renderErroConexao,
 } from './render.js';
@@ -24,17 +23,10 @@ async function iniciar() {
     return;
   }
 
-  const siteId = getSiteId();
-
-  if (!siteId) {
-    renderSiteIdAusente(container);
-    return;
-  }
-
   renderLoading(container);
 
   try {
-    const dados = await buscarBioLink(siteId);
+    const dados = await buscarBioLink(SITE_ID);
     renderPagina(container, dados);
   } catch (erro) {
     if (erro instanceof ApiError && erro.tipo === 'nao_encontrado') {

@@ -123,20 +123,6 @@ export function renderErro(container, { titulo, texto, ilustracao, rotuloBotao, 
 }
 
 /**
- * Renderiza erro quando site_id não está presente na URL.
- * @param {HTMLElement} container
- */
-export function renderSiteIdAusente(container) {
-  renderErro(container, {
-    titulo: 'BioLink não encontrado',
-    texto: 'Informe um identificador válido na URL. Exemplo: index.html?site_id=4',
-    ilustracao: ILUSTRACAO_NAO_ENCONTRADO,
-    rotuloBotao: 'Voltar',
-    acaoBotao: voltarPagina,
-  });
-}
-
-/**
  * Renderiza página 404 amigável.
  * @param {HTMLElement} container
  */
