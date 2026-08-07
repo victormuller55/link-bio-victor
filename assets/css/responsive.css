@@ -1,62 +1,86 @@
 @media (max-width: 480px) {
   .biolink-app {
-    padding: 3.5rem var(--spacing-sm) var(--spacing-lg);
+    padding: 3.75rem var(--spacing-sm) var(--spacing-xl);
   }
 
   .biolink-header {
-    padding-top: var(--spacing-sm);
+    padding-top: var(--spacing-xs);
   }
 
   .biolink-tema-toggle {
     top: var(--spacing-sm);
     right: var(--spacing-sm);
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 2.6rem;
+    height: 2.6rem;
   }
 
   .biolink-tema-toggle svg {
-    width: 1.125rem;
-    height: 1.125rem;
+    width: 1.1rem;
+    height: 1.1rem;
   }
 
   .biolink-header__avatar {
-    width: 5.5rem;
-    height: 5.5rem;
+    width: 6rem;
+    height: 6rem;
+  }
+
+  .biolink-header__avatar-wrap::after {
+    inset: -12px;
   }
 
   .biolink-header__iniciais {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
   }
 
   .biolink-header__nome {
-    font-size: 1.25rem;
+    font-size: 1.625rem;
   }
 
   .biolink-header__descricao {
-    font-size: 0.875rem;
+    font-size: 0.9rem;
   }
 
   .biolink-link {
-    padding: var(--spacing-sm) var(--spacing-md);
+    padding: 0.85rem 1rem;
+  }
+
+  .biolink-link__icone {
+    width: 2.25rem;
+    height: 2.25rem;
   }
 
   .biolink-link__titulo {
-    font-size: 0.875rem;
+    font-size: 0.9rem;
+  }
+
+  .biolink-sobre {
+    padding: var(--spacing-md) var(--spacing-md) var(--spacing-md) 1.1rem;
   }
 
   .biolink-estado__titulo {
-    font-size: 1.25rem;
+    font-size: 1.3rem;
   }
 
   .biolink-estado__ilustracao {
-    width: 6.5rem;
-    height: 6.5rem;
+    width: 6.25rem;
+    height: 6.25rem;
+  }
+
+  .biolink-bg__orb--1 {
+    width: 20rem;
+    height: 16rem;
+  }
+
+  .biolink-bg__orb--2,
+  .biolink-bg__orb--3 {
+    width: 14rem;
+    height: 14rem;
   }
 }
 
 @media (min-width: 481px) and (max-width: 768px) {
   .biolink-app {
-    padding: var(--spacing-lg) var(--spacing-md);
+    padding: var(--spacing-xl) var(--spacing-md);
   }
 }
 
@@ -65,12 +89,13 @@
     padding: var(--spacing-2xl) var(--spacing-lg);
   }
 
-  .biolink-header__nome {
-    font-size: 1.625rem;
+  .biolink-header__avatar {
+    width: 7.5rem;
+    height: 7.5rem;
   }
 
   .biolink-link {
-    padding: var(--spacing-md) var(--spacing-xl);
+    padding: 1.05rem 1.35rem;
   }
 }
 
@@ -80,6 +105,13 @@
     opacity: 1;
     transform: none;
     transition: none;
+    animation: none !important;
+  }
+
+  .biolink-header__avatar-wrap::before,
+  .biolink-header__avatar-wrap::after,
+  .biolink-bg__orb {
+    animation: none !important;
   }
 
   *,

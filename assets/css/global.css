@@ -1,10 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap");
 
 body {
   font-family: var(--font-family);
   color: var(--text);
   background-color: var(--background);
   background-image: var(--bg-gradient);
+  background-attachment: fixed;
   transition:
     background-color var(--transition),
     background-image var(--transition),
@@ -23,71 +24,86 @@ body {
 .biolink-bg__orb {
   position: absolute;
   border-radius: 50%;
-  filter: blur(80px);
-  opacity: var(--orb-opacity);
-  background: var(--primary);
+  filter: blur(90px);
+  will-change: transform;
 }
 
 .biolink-bg__orb--1 {
-  top: -8%;
-  left: -12%;
-  width: 22rem;
+  top: -12%;
+  left: 50%;
+  translate: -50% 0;
+  width: 28rem;
   height: 22rem;
-  animation: orb-float-1 18s ease-in-out infinite;
+  background: var(--orb-1);
+  animation: orb-drift-1 20s ease-in-out infinite;
 }
 
 .biolink-bg__orb--2 {
-  top: 35%;
-  right: -15%;
-  width: 18rem;
-  height: 18rem;
-  animation: orb-float-2 22s ease-in-out infinite;
+  top: 40%;
+  right: -18%;
+  width: 20rem;
+  height: 20rem;
+  background: var(--orb-2);
+  animation: orb-drift-2 26s ease-in-out infinite;
 }
 
 .biolink-bg__orb--3 {
-  bottom: -10%;
-  left: 20%;
-  width: 16rem;
-  height: 16rem;
-  opacity: calc(var(--orb-opacity) * 0.7);
-  animation: orb-float-3 20s ease-in-out infinite;
+  bottom: -8%;
+  left: -10%;
+  width: 18rem;
+  height: 18rem;
+  background: var(--orb-3);
+  animation: orb-drift-3 22s ease-in-out infinite;
 }
 
 .biolink-bg__grid {
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(var(--grid-color) 1px, transparent 1px);
-  background-size: 28px 28px;
-  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 20%, transparent 75%);
+  background-image:
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 65% 55% at 50% 30%, black 15%, transparent 70%);
+  opacity: 0.7;
 }
 
-@keyframes orb-float-1 {
+.biolink-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: var(--noise-opacity);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+  mix-blend-mode: overlay;
+}
+
+@keyframes orb-drift-1 {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(2.5rem) scale(1.1);
+  }
+}
+
+@keyframes orb-drift-2 {
   0%,
   100% {
     transform: translate(0, 0) scale(1);
   }
   50% {
-    transform: translate(3rem, 2rem) scale(1.08);
+    transform: translate(-3rem, 2rem) scale(0.92);
   }
 }
 
-@keyframes orb-float-2 {
-  0%,
-  100% {
-    transform: translate(0, 0) scale(1);
-  }
-  50% {
-    transform: translate(-2.5rem, 3rem) scale(0.95);
-  }
-}
-
-@keyframes orb-float-3 {
+@keyframes orb-drift-3 {
   0%,
   100% {
     transform: translate(0, 0);
   }
   50% {
-    transform: translate(2rem, -2rem);
+    transform: translate(2.5rem, -2rem);
   }
 }
 
@@ -98,7 +114,7 @@ body {
   flex-direction: column;
   align-items: center;
   min-height: 100dvh;
-  padding: var(--spacing-lg) var(--spacing-md) var(--spacing-xl);
+  padding: var(--spacing-xl) var(--spacing-md) var(--spacing-2xl);
 }
 
 .biolink-app__main {
@@ -123,10 +139,10 @@ body {
 /* Animação ao scroll */
 .biolink-animate {
   opacity: 0;
-  transform: translateY(28px);
+  transform: translateY(24px);
   transition:
-    opacity 0.65s cubic-bezier(0.4, 0, 0.2, 1),
-    transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
   transition-delay: var(--animate-delay, 0ms);
   will-change: opacity, transform;
 }
@@ -136,27 +152,34 @@ body {
   transform: translateY(0);
 }
 
-/* Links em cascata quando a seção entra no viewport */
 .biolink-secao--links .biolink-link {
   opacity: 0;
-  transform: translateY(16px);
-  transition:
-    opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-    transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: link-reveal 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-play-state: paused;
 }
 
 .biolink-secao--links.biolink-animate--visivel .biolink-link {
-  opacity: 1;
-  transform: translateY(0);
+  animation-play-state: running;
 }
 
-.biolink-secao--links.biolink-animate--visivel .biolink-link:nth-child(1) { transition-delay: 0.08s; }
-.biolink-secao--links.biolink-animate--visivel .biolink-link:nth-child(2) { transition-delay: 0.14s; }
-.biolink-secao--links.biolink-animate--visivel .biolink-link:nth-child(3) { transition-delay: 0.2s; }
-.biolink-secao--links.biolink-animate--visivel .biolink-link:nth-child(4) { transition-delay: 0.26s; }
-.biolink-secao--links.biolink-animate--visivel .biolink-link:nth-child(5) { transition-delay: 0.32s; }
-.biolink-secao--links.biolink-animate--visivel .biolink-link:nth-child(6) { transition-delay: 0.38s; }
-.biolink-secao--links.biolink-animate--visivel .biolink-link:nth-child(n+7) { transition-delay: 0.44s; }
+.biolink-secao--links.biolink-animate--visivel .biolink-link:nth-child(1) { animation-delay: 0.06s; }
+.biolink-secao--links.biolink-animate--visivel .biolink-link:nth-child(2) { animation-delay: 0.12s; }
+.biolink-secao--links.biolink-animate--visivel .biolink-link:nth-child(3) { animation-delay: 0.18s; }
+.biolink-secao--links.biolink-animate--visivel .biolink-link:nth-child(4) { animation-delay: 0.24s; }
+.biolink-secao--links.biolink-animate--visivel .biolink-link:nth-child(5) { animation-delay: 0.3s; }
+.biolink-secao--links.biolink-animate--visivel .biolink-link:nth-child(6) { animation-delay: 0.36s; }
+.biolink-secao--links.biolink-animate--visivel .biolink-link:nth-child(n+7) { animation-delay: 0.42s; }
+
+@keyframes link-reveal {
+  from {
+    opacity: 0;
+    translate: 0 14px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
 
 .biolink-secoes {
   display: flex;
@@ -172,4 +195,3 @@ body {
 .biolink-secao[hidden] {
   display: none;
 }
-
