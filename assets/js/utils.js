@@ -160,7 +160,7 @@ export function atualizarMetadados(dados) {
     return;
   }
 
-  const nome = dados.nome?.trim() || 'Victor Muller';
+  const nome = 'Victor Muller da Luz';
   const titulo = `${nome} | BioLink Convertix`;
 
   document.title = titulo;

@@ -16,8 +16,9 @@ import {
 } from './utils.js';
 import { inicializarAnimacoesScroll } from './scroll-animate.js';
 
-const NOME_PADRAO = 'Victor Muller';
+const NOME_PADRAO = 'Victor Muller da Luz';
 const USUARIO_PADRAO = 'victor.muller20';
+const INSTAGRAM_URL = 'https://instagram.com/victor.muller20';
 
 const TEXTO_PLACEHOLDER = {
   descricao: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
@@ -156,7 +157,7 @@ export function renderErroConexao(container) {
  * @returns {HTMLElement}
  */
 export function renderPerfil(dados) {
-  const nome = resolverTexto(dados.nome, NOME_PADRAO);
+  const nome = NOME_PADRAO;
   const usuario = resolverTexto(dados.nome_usuario, USUARIO_PADRAO);
   const descricao = resolverTexto(dados.descricao, TEXTO_PLACEHOLDER.descricao);
 
@@ -213,9 +214,13 @@ export function renderPerfil(dados) {
   );
 
   header.appendChild(
-    createElement('span', {
+    createElement('a', {
       className: 'biolink-header__especialidade',
+      href: INSTAGRAM_URL,
+      target: '_blank',
+      rel: 'noopener noreferrer',
       textContent: usuario,
+      'aria-label': `Abrir Instagram de ${usuario}`,
     })
   );
 

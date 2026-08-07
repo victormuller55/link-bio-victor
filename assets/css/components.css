@@ -101,7 +101,7 @@
 .biolink-header__descricao {
   font-size: 0.975rem;
   font-weight: 400;
-  color: var(--text-light);
+  color: color-mix(in srgb, var(--text-light) 75%, transparent);
   max-width: 22rem;
   line-height: 1.65;
   margin-top: 0.15rem;
@@ -117,12 +117,23 @@
   font-weight: 600;
   letter-spacing: 0.02em;
   color: var(--primary);
-  background: linear-gradient(135deg, var(--accent-soft), rgba(255, 255, 255, 0.4));
-  border: 1px solid var(--border);
+  background: var(--accent-soft);
+  border: 1px solid color-mix(in srgb, var(--primary) 28%, transparent);
   border-radius: var(--radius-full);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  box-shadow: var(--shadow-sm);
+  transition:
+    background-color var(--transition-fast),
+    border-color var(--transition-fast),
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.biolink-header__especialidade:hover {
+  background: color-mix(in srgb, var(--primary) 18%, transparent);
+  border-color: var(--primary);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px var(--avatar-glow);
 }
 
 .biolink-header__especialidade::before {
