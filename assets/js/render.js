@@ -2,8 +2,8 @@
  * Renderização da interface do BioLink.
  */
 
-import { API_BASE_URL } from './api.js';
-import { obterIcone, obterIconeSeta } from './icons.js';
+import { API_BASE_URL } from './api.js?v=2';
+import { obterIcone, obterIconeSeta } from './icons.js?v=2';
 import {
   createElement,
   getInitials,
@@ -13,8 +13,8 @@ import {
   voltarPagina,
   atualizarMetadados,
   hideLoading,
-} from './utils.js';
-import { inicializarAnimacoesScroll } from './scroll-animate.js';
+} from './utils.js?v=2';
+import { inicializarAnimacoesScroll } from './scroll-animate.js?v=2';
 
 const NOME_PADRAO = 'Victor Muller da Luz';
 const USUARIO_PADRAO = 'victor.muller20';
