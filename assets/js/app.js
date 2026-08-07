@@ -2,15 +2,15 @@
  * Fluxo principal da aplicação BioLink Convertix.
  */
 
-import { buscarBioLink, ApiError } from './api.js';
-import { SITE_ID } from './utils.js';
-import { inicializarTema, inicializarBotaoTema } from './tema.js';
+import { buscarBioLink, ApiError } from './api.js?v=2';
+import { SITE_ID } from './utils.js?v=2';
+import { inicializarTema, inicializarBotaoTema } from './tema.js?v=2';
 import {
   renderLoading,
   renderPagina,
   renderNaoEncontrado,
   renderErroConexao,
-} from './render.js';
+} from './render.js?v=2';
 
 const container = document.getElementById('biolink-conteudo');
 
